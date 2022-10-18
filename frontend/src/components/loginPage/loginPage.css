@@ -112,13 +112,16 @@
 }
 
 .gotoRegisterButton{
-    color: #40739e;
+    color: white;
     text-align: center;
     margin: 10px;
+    padding:10px;
+    border-radius: 20px;
     /*margin-left: 25%;*/
     background-color: transparent;
     border: none;
     outline: none;
+    cursor: pointer;
     background-color: black;
 }
 

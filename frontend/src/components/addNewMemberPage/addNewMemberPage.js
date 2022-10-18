@@ -17,6 +17,7 @@ class AddNewMemberPage extends Component {
                 confirmPassword:""
             },
             reDirectToHomePage: false,
+            reDirectToLogin:false,
             error: '',
             isAdmin: false
         }
@@ -58,24 +59,15 @@ class AddNewMemberPage extends Component {
     render() {
         if (this.state.reDirectToHomePage) {
             return <Navigate to="/home"/>
+        }else if(this.state.reDirectToLogin){
+            return <Navigate to="/login"/>
         }else {
             return (
                 <div className="pos">
                     <div className="addNewMemberForm">
-                        <div className="addNewMembers_answers_go_home"
-                            onClick={(e)=>{
-                                e.preventDefault()
-                                this.setState({
-                                    reDirectToHomePage:true
-                                })
-                            }}
-                        >
-                            <FaHome className="addNewMembers_page_home_icon"/>
-                            <h7>Home</h7>
-                        </div>
                         <form className="subAddMembersForm" onSubmit={this.login}>
                             <h1 className="addMembersformTitle">ADD NEW MEMBERS</h1>
-                            <h6 className="addMembersformDesc">Depression System</h6>
+                            <h6 className="addMembersformDesc">Lung Function Prediction System</h6>
                             <div className="loginError">{this.state.error}</div>
                             <div className="form-group loginformtextbox ">
                                 <input
@@ -180,6 +172,12 @@ class AddNewMemberPage extends Component {
                                     value="Add New Member"
                                 />
                             </div>
+                            <input
+                                type="button"
+                                onClick={() => this.setState({reDirectToLogin: true})}
+                                className="gotoRegisterButton"
+                                value="Already have an account? Login here"
+                            />
                         </form>
 
                     </div>

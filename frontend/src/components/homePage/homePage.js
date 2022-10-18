@@ -29,54 +29,7 @@ class HomePage extends Component {
         }else {
             return (
                 <div className="homePageMain">
-                    <div className="homePageMenu">
-                        <h1
-                            onClick={(e)=>{
-                            e.preventDefault()
-                            this.setState({reDirectToDiaryHistory: true})
-                        }}
-                            className="menuItem1" id="menuItemText1">
-                            Diary History
-                        </h1>
-                        <h1
-                            onClick={(e)=> {
-                                e.preventDefault()
-                                this.setState({reDirectToSocialMediaAnalyser: true})
-                            }}
-                            className="menuItem2"
-                            id="menuItemText2"
-                        >
-                            Social Media Activity Analyse
-                        </h1>
-                        <h1
-                            onClick={(e)=> {
-                                e.preventDefault()
-                                this.setState({reDirectToTests: true})
-                            }}
-                            className="menuItem3" id="menuItemText3"
-                        >
-                            Tests
-                        </h1>
-                        <h1
-                            onClick={(e)=> {
-                                e.preventDefault()
-                                this.setState({reDirectToAddMembers: true})
-                            }}
-                            className="menuItem4" id="menuItemText4"
-                        >
-                            Add Member Details / IDs
-                        </h1>
-                    </div>
-                    <div className="logoutIconContainer">
-                        <div className="logoutButton"  onClick={(e)=> {
-                            e.preventDefault()
-                            this.setState({reDirectToLogin: true})
-                        }}>
-                            <BiLogOutCircle className="logoutIcon"/>
-                            {/*<h7 className="logoutText">Logout</h7>*/}
-                        </div>
-                    </div>
-
+                    <h3>Welcome Chanuka Abeysinghe</h3>
                 </div>
             );
         }

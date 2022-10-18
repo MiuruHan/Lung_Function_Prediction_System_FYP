@@ -68,6 +68,8 @@ class LoginPage extends Component {
     render() {
         if (this.state.reDirectToHomePage) {
             return <Navigate to="/home"/>
+        }else if(this.state.reDirectToRegistration){
+            return <Navigate to="/addNewMember"/>
         }else {
             return (
                 <div className="pos">
