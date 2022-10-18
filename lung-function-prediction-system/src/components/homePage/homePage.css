@@ -1,0 +1,214 @@
+.homePageMain{
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    border-bottom-right-radius: 500px;
+    border-bottom: 100px solid #40739e;
+    grid-template-columns: 80% 20%;
+    font-family:"Arial Rounded MT Bold";
+}
+
+.homePageMenu{
+    margin-left: 10%;
+    width: 80%;
+    height: 80%;
+    margin-top: 5%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: grid;
+    border-right: 5px solid #40739e;
+    border-radius: 5px;
+    border-left-width: 2px;
+    grid-template-rows: 25% 25% 25% 25% ;
+}
+.menuItem1{
+    align-self: center;
+    background-color: #9b59b6;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: #f5f6fa;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 60px;
+    padding-top: 25px;
+}
+.menuItem2{
+    align-self: center;
+    background-color: #16a085;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+    color: #f5f6fa;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 60px;
+    padding-top: 25px;
+}
+.menuItem3{
+    align-self: center;
+    background-color: #e67e22;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+    color: #f5f6fa;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 60px;
+    padding-top: 25px;
+
+}
+.menuItem4{
+    align-self: center;
+    background-color: #27ae60;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+    color: #f5f6fa;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 60px;
+    padding-top: 25px;
+}
+.menuItem5{
+    align-self: center;
+    background-color: #FF5349;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+    color: #f5f6fa;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 60px;
+    padding-top: 25px;
+}
+.menuItem1:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid #9b59b6;
+}
+.menuItem2:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid #16a085;
+}
+.menuItem3:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid #e67e22;
+}
+.menuItem4:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid #27ae60;
+}
+.menuItem5:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid #FF5349;
+}
+.menuItemText{
+    text-align: center;
+    color: #f5f6fa;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.logoutIconContainer{
+    margin-top: 50px;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.logoutButton{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    display: flex;
+    margin-right: 20px;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    background-color:  #40739e;
+    cursor: pointer;
+}
+.logoutIcon{
+    font-size: 40px;
+    color: white;
+    font-weight: bolder;
+}
+.logoutButton:hover{
+    color: #40739e ;
+    background-color: red;
+}
+.logoutText{
+    font-size: 20px;
+    color:white;
+    padding-top: 5px;
+    font-weight: bolder;
+    text-align: right;
+}
+#menuItemText1:hover{
+    color: #9b59b6;
+}
+#menuItemText2:hover{
+    color: #16a085;
+}
+#menuItemText3:hover{
+    color: #e67e22;
+}
+#menuItemText4:hover{
+    color: #27ae60;
+}
+#menuItemText5:hover{
+    color:#FF5349 ;
+}
+
+@media only screen and (max-width: 1000px) {
+    .homePageMain{
+        grid-template-columns: 80% 20%;
+    }
+    .homePageMenu{
+        margin-left: 10%;
+        width: 70%;
+        padding-right: 10%;
+        height: 80%;
+        margin-top: 5%;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        display: grid;
+        border-right: 5px solid #40739e;
+        border-radius: 5px;
+        border-left-width: 2px;
+        grid-template-rows: 25% 25% 25% 25% ;
+    }
+    .menuItem4,.menuItem3,.menuItem2,.menuItem1{
+        font-size: 20px;
+        padding-top: 20px;
+    }
+}

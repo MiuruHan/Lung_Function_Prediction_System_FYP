@@ -6,7 +6,7 @@ const cors = require('cors')
 const userRouter = require('./api/routes/user_routes')
 // ROUTES
 app.get('/',(req,res)=>{
-    res.send("This is depression App's API")
+    res.send("This is Lung Function Prediction App's API")
 })
 
 connectDB();

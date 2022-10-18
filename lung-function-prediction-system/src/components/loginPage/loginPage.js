@@ -66,9 +66,6 @@ class LoginPage extends Component {
 
 
     render() {
-        if (this.state.reDirectToHomePage) {
-            return <Navigate to="/home"/>
-        }else {
             return (
                 <div className="pos">
                     <div className="loginform">
@@ -141,7 +138,7 @@ class LoginPage extends Component {
                     </div>
                 </div>
             );
-        }
+
     }
 }
 
