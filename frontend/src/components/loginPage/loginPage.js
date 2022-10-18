@@ -66,12 +66,15 @@ class LoginPage extends Component {
 
 
     render() {
+        if (this.state.reDirectToHomePage) {
+            return <Navigate to="/home"/>
+        }else {
             return (
                 <div className="pos">
                     <div className="loginform">
                         <form className="subLoginForm" onSubmit={this.login}>
                             <h1 className="loginformTitle">WELCOME</h1>
-                            <h6 className="loginformDesc">Depression System</h6>
+                            <h6 className="loginformDesc">Lung Function Prediction System</h6>
                             <div className="loginError">{this.state.error}</div>
                             <div className="form-group loginformtextbox ">
                                 <input
@@ -105,15 +108,16 @@ class LoginPage extends Component {
                                     placeholder="Password"
                                 />
                             </div>
-                            <div className="adminCheckBoxContainer">
-                                <input className="adminCheckBox" type="checkbox" id="inlineCheckbox2"
-                                       checked={this.state.isAdmin}
-                                       onChange={(e) => {
-                                           this.setState({isAdmin: !this.state.isAdmin})
-                                       }}
-                                />
-                                <label className="adminCheckBoxLabel">I am an admin.</label>
-                            </div>
+                            {/*<div className="adminCheckBoxContainer">*/}
+                            {/*    <input className="adminCheckBox" type="checkbox" id="inlineCheckbox2"*/}
+                            {/*           checked={this.state.isAdmin}*/}
+                            {/*           onChange={(e) => {*/}
+                            {/*               this.setState({isAdmin: !this.state.isAdmin})*/}
+                            {/*           }}*/}
+                            {/*    />*/}
+                            {/*    <label className="adminCheckBoxLabel">I am an admin.</label>*/}
+                            {/*</div>*/}
+                            <h6 className="loginformError">Username or password incorrect.</h6>
                             <div className="loginformtextbox">
                                 <input
                                     type="submit"
@@ -121,12 +125,12 @@ class LoginPage extends Component {
                                     value="Login"
                                 />
                             </div>
-                            {/*<input*/}
-                            {/*    type="button"*/}
-                            {/*    onClick={() => this.setState({reDirectToRegistration: true})}*/}
-                            {/*    className="gotoRegisterButton"*/}
-                            {/*    value="Do not have an account? Register here"*/}
-                            {/*/>*/}
+                            <input
+                                type="button"
+                                onClick={() => this.setState({reDirectToRegistration: true})}
+                                className="gotoRegisterButton"
+                                value="Do not have an account? Register here"
+                            />
                             {/*<input*/}
                             {/*    type="button"*/}
                             {/*    onClick={() => this.setState({reDirectVerifyEmail: true})}*/}
@@ -138,7 +142,7 @@ class LoginPage extends Component {
                     </div>
                 </div>
             );
-
+        }
     }
 }
 

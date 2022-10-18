@@ -56,6 +56,16 @@
     letter-spacing: 5px;
     text-align: center;
 }
+.loginformError {
+    color: red;
+    padding-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-align: center;
+}
 .loginFormTextInput {
     width: 80%;
     background: white;

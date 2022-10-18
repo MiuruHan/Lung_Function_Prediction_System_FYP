@@ -1,0 +1,157 @@
+.sessionSelectionMain{
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    border-bottom-right-radius: 500px;
+    border-bottom: 100px solid #40739e;
+    grid-template-columns: 70% 30%;
+    font-family:"Arial Rounded MT Bold";
+}
+
+.sessionSelectionMenu{
+    width: 80%;
+    height: 80%;
+    margin-top: 5%;
+    background-color: white;
+    border-right: 5px solid #40739e;
+    border-radius: 5px;
+    border-left-width: 2px;
+    overflow: scroll;
+}
+.sessionSelectionMenuItem{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 80%;
+    margin-left: 10%;
+    cursor: pointer;
+}
+.sessionSelectionSessionName{
+    text-align: center;
+    padding: 10px;
+    padding-top: 15px;
+    border-right: 1px solid;
+    width: 80%;
+    justify-items: center;
+    margin-left: 10%;
+    font-weight: bolder;
+    font-size: 15px;
+    cursor: pointer;
+}
+#name1{border-color: #9b59b6;color: #9b59b6}
+#name2{border-color: #16a085;color: #16a085}
+#name3{border-color: #e67e22;color: #e67e22}
+#name4{border-color: #27ae60;color: #27ae60}
+#name5{border-color: #FF5349;color: #FF5349}
+#name1:hover{background-color: #9b59b6;color: white}
+#name2:hover{background-color: #16a085;color: white}
+#name3:hover{background-color: #e67e22;color: white}
+#name4:hover{background-color: #27ae60;color: white}
+#name5:hover{background-color: #FF5349;color: white}
+#status1{border-color: #9b59b6;}
+#status2{border-color: #16a085;}
+#status3{border-color: #e67e22;}
+#status4{border-color: #27ae60;}
+#status5{border-color: #FF5349;}
+
+.sessionSelectionSessionStatus{
+    text-align: center;
+    padding: 5px;
+    /*border: 1px solid;*/
+    width: 80%;
+    margin-left: 10%;
+    font-weight: bolder;
+    font-size: 20px;
+    /*border-radius: 30px;*/
+    /*border-bottom: 1px solid;*/
+}
+/*#Completed{color: red;} #Available{color:green}*/
+
+.sideNavBar{
+    padding-top: 20px;
+    width: 80%;
+}
+.sessionSelection_answers_go_home{
+    display: flex;
+    flex-direction: row-reverse;
+    color: #40739e;
+    cursor: pointer;
+}
+.sessionSelection_answers_go_home:hover{
+    color:red;
+}
+.sessionSelection_page_home_icon{
+    margin-right: 20px;
+    margin-left: 5px;
+}
+.statusButtons{
+    position: relative;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+}
+.completedText{
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #FF5349;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+}
+.completedText:hover{
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+.availableText{
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+}
+.availableText:hover{
+    background-color: white;
+    color: green;
+    border: 2px solid green;
+}
+
+
+
+
+@media only screen and (max-width: 1000px) {
+    .sessionSelectionMain{
+        grid-template-columns: 80% 20%;
+    }
+    .sessionSelectionMenu{
+        margin-left: 10%;
+        width: 70%;
+        padding-right: 10%;
+        height: 80%;
+        margin-top: 5%;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        display: grid;
+        border-right: 5px solid #40739e;
+        border-radius: 5px;
+        border-left-width: 2px;
+        grid-template-rows: 25% 25% 25% 25% ;
+    }
+    .menuItem4,.menuItem3,.menuItem2,.menuItem1{
+        font-size: 20px;
+        padding-top: 20px;
+    }
+}
