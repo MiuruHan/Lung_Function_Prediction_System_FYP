@@ -1,0 +1,214 @@
+.pos {
+    width: 100vw;
+    height: 100%;
+    display: inline-block;
+    background-size: cover;
+    bottom: 0px;
+    font-family:"Arial Rounded MT Bold";
+}
+
+.loginform {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-color: #FF5349;
+    /*background-color: red;*/
+    display: grid;
+    padding-top: 10%;
+    background-color: #40739e;
+}
+
+
+.subLoginForm {
+    position: absolute;
+    right: 25%;
+    bottom: 20px;
+    top:20px;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    /*//#1e272e*/
+}
+
+.loginformTitle {
+    color: grey;
+    width: 100%;
+    text-align: center;
+    justify-self: center;
+    font-size: 30px;
+    /*margin-top: 100px;*/
+    letter-spacing: 10px;
+}
+
+.loginformDesc {
+    color: #40739e;
+    padding-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 15px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+.loginFormTextInput {
+    width: 80%;
+    background: white;
+    outline: none;
+    border: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    padding: 10px;
+    color: #40739e;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family:"Arial Rounded MT Bold";
+    border: 2px solid #40739e;
+}
+
+.loginformtextbox {
+    width: 100%;
+}
+
+.loginformlabels {
+    padding-top: 20px;
+    width: 100%;
+    justify-self: center;
+    color: azure;
+}
+
+.loginbutton {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 10px;
+    background: #40739e;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+.loginbutton:hover {
+    box-shadow: 0px 0px 20px 1px #40739e;
+}
+
+.gotoRegisterButton{
+    color: #40739e;
+    text-align: center;
+    margin: 10px;
+    /*margin-left: 25%;*/
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-color: black;
+}
+
+.loginError{
+    color: red;
+    text-align: center;
+}
+.adminCheckBoxContainer{
+    width: 80%;
+    background: white;
+    outline: none;
+    border: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.adminCheckBoxLabel{
+    margin-left: 10px;
+    color: grey;
+    font-size: 15px;
+}
+@media only screen and (max-width: 1000px) {
+
+    .loginform {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-color: #FF5349;
+        /*background-color: red;*/
+        display: grid;
+        padding-top: 10%;
+        grid-template-columns: 30% 70%;
+    }
+
+    .subLogoLoginForm {
+        position: absolute;
+        left: 0px;
+        width: 30%;
+        height: 100%;
+        box-shadow: 0px 0px 20px 1px red;
+    }
+
+    .subLoginForm {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: 70%;
+        height: 100%;
+        background-color: black;
+        /*//#1e272e*/
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .subLoginForm {
+        position: absolute;
+        right: 0px;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        /*//#1e272e*/
+    }
+    .subLogoLoginForm{
+        display:unset;
+        position: absolute;
+        left: 0px;
+        width: 00%;
+        height: 00%;
+        background-image:unset;
+        box-shadow: unset;
+    }
+    .loginformTitle {
+        color: #40739e;
+        width: 100%;
+        text-align: center;
+        justify-self: center;
+        font-size: 30px;
+        /*margin-top: 20px;*/
+        letter-spacing: 15px;
+    }
+    .loginformDesc {
+        color: #40739e;
+        padding: 5px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        font-size: 15px;
+        letter-spacing: 5px;
+        text-align: center;
+        opacity: 1;
+    }
+}
