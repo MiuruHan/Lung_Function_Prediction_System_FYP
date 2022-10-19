@@ -1,35 +1,201 @@
 import React, {Component} from 'react';
 import './homePage.css'
-import {BiLogOutCircle} from "react-icons/bi";
 import {Navigate} from "react-router-dom";
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            weekNumber: null,
+            age: null,
+            lungFunctionCapacity: null,
+            gender: null,
+            smokingStatus: null,
             reDirectToDiaryHistory: false,
             reDirectToLogin: false,
             reDirectToSocialMediaAnalyser: false,
             reDirectToTests: false,
             reDirectToAddMembers: false,
+            predicted: true,
         }
     }
 
     render() {
-        if(this.state.reDirectToDiaryHistory){
+        if (this.state.reDirectToDiaryHistory) {
             return <Navigate to="/testDiary"/>
-        }else if(this.state.reDirectToTests){
+        } else if (this.state.reDirectToTests) {
             return <Navigate to="/sessionSelection"/>
-        }else if(this.state.reDirectToAddMembers){
+        } else if (this.state.reDirectToAddMembers) {
             return <Navigate to="/addNewMember"/>
-        }else if(this.state.reDirectToSocialMediaAnalyser){
+        } else if (this.state.reDirectToSocialMediaAnalyser) {
             return <Navigate to="/socialMedia"/>
-        }else if(this.state.reDirectToLogin){
+        } else if (this.state.reDirectToLogin) {
             return <Navigate to="/login"/>
-        }else {
+        } else {
             return (
                 <div className="homePageMain">
-                    <h3>Welcome Chanuka Abeysinghe</h3>
+                    <h1 className="title">Welcome Chanuka Abeysinghe</h1>
+                    {this.state.predicted ?
+                        <div className="predictionBox">
+                            <h3 className="prediction">
+                                Forced Vital Capacity :
+                            </h3>
+                        </div>
+                        :
+                        <div></div>
+                    }
+                    <div className="form">
+                        <div className="inputComponent">
+                            <h7 className="label">Please select 10 CT images which are needed
+                                to predict FVC (Only select dicom images.)</h7>
+                            <input id='fileUpload' type='file' multiple
+                                   // accept='image/png'
+                            />
+                        </div>
+                        <div className="inputRow">
+                            <div className="inputComponent">
+                                <h7 className="label">Week Number</h7>
+                                <input
+                                    className="loginFormTextInput"
+                                    onChange={(e) =>
+                                        this.setState({
+                                            weekNumber: e.target.value
+                                        })
+                                    }
+                                    value={this.state.weekNumber}
+                                    type="number"
+                                    placeholder="Week Number"
+                                />
+                            </div>
+                            <div className="inputComponent">
+                                <h7 className="label">Age</h7>
+                                <input
+                                    className="loginFormTextInput"
+                                    onChange={(e) =>
+                                        this.setState({
+                                            age: e.target.value
+                                        })
+                                    }
+                                    value={this.state.age}
+                                    type="number"
+                                    placeholder="Age"
+                                />
+                            </div>
+                        </div>
+                        <div className="inputComponent">
+                            <h7 className="label">Lung Function Capacity</h7>
+                            <input
+                                className="loginFormTextInput"
+                                onChange={(e) =>
+                                    this.setState({
+                                        lungFunctionCapacity:e.target.value
+                                    })
+                                }
+                                value={this.state.lungFunctionCapacity}
+                                type="number"
+                                placeholder="Lung Function Capacity"
+                            />
+                        </div>
+                        <div className="inputRow">
+                            <div className="inputComponent">
+                                <h7 className="label">Gender</h7>
+                                <div className="checkButtons">
+                                    <label className="checkButton">
+                                        <input
+                                            type="radio"
+                                            value="Male"
+                                            checked={this.state.gender === "Male"}
+                                            onChange={(event)=>{
+                                                this.setState({
+                                                    gender:event.target.value
+                                                })
+                                            }}
+                                        />
+                                        Male
+                                    </label>
+                                    <label className="checkButton">
+                                        <input
+                                            type="radio"
+                                            value="Female"
+                                            checked={this.state.gender === "Female"}
+                                            onChange={(event)=>{
+                                                this.setState({
+                                                    gender:event.target.value
+                                                })
+                                            }}
+                                        />
+                                        FeMale
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="inputComponent">
+                                <h7 className="label">Smoking Status</h7>
+                                <div className="checkButtons">
+                                    <label className="checkButton">
+                                        <input
+                                            type="radio"
+                                            value="Currently Smoking"
+                                            checked={this.state.smokingStatus === "Currently Smoking"}
+                                            onChange={(event)=>{
+                                                this.setState({
+                                                    smokingStatus:event.target.value
+                                                })
+                                            }}
+                                        />
+                                        Currently Smoking
+                                    </label>
+                                    <label className="checkButton">
+                                        <input
+                                            type="radio"
+                                            value="Stopped Smoking"
+                                            checked={this.state.smokingStatus === "Stopped Smoking"}
+                                            onChange={(event)=>{
+                                                this.setState({
+                                                    smokingStatus:event.target.value
+                                                })
+                                            }}
+                                        />
+                                        Stopped Smoking
+                                    </label>
+                                    <label className="checkButton">
+                                        <input
+                                            type="radio"
+                                            value="Never Smoked"
+                                            checked={this.state.smokingStatus === "Never Smoked"}
+                                            onChange={(event)=>{
+                                                this.setState({
+                                                    smokingStatus:event.target.value
+                                                })
+                                            }}
+                                        />
+                                        Never Smoked
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <input
+                            type="button"
+                            onClick={()=>{
+                                if(this.state.weekNumber===""&&
+                                    this.state.age===""&&
+                                    this.state.lungFunctionCapacity===""&&
+                                    this.state.smokingStatus===""&&
+                                    this.state.gender===""
+                                ){
+
+                                }
+                                console.log(this.state)
+                            }}
+                            className=" loginbutton"
+                            value="Predict FVC Value"
+                        />
+                        <input
+                            type="button"
+                            onClick={() => this.setState({reDirectToRegistration: true})}
+                            className="gotoRegisterButton"
+                            value="Do not have an account? Register here"
+                        />
+                    </div>
                 </div>
             );
         }
