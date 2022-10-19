@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './homePage.css'
 import {Navigate} from "react-router-dom";
+import {default as axios} from "axios";
 
 class HomePage extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class HomePage extends Component {
             reDirectToTests: false,
             reDirectToAddMembers: false,
             predicted: true,
+            predictedValue:null,
         }
     }
 
@@ -38,7 +40,7 @@ class HomePage extends Component {
                     {this.state.predicted ?
                         <div className="predictionBox">
                             <h3 className="prediction">
-                                Forced Vital Capacity :
+                                Forced Vital Capacity : {this.state.predictedValue}
                             </h3>
                         </div>
                         :
@@ -175,7 +177,8 @@ class HomePage extends Component {
                         </div>
                         <input
                             type="button"
-                            onClick={()=>{
+                            onClick={(event)=>{
+                                event.preventDefault()
                                 if(this.state.weekNumber===""&&
                                     this.state.age===""&&
                                     this.state.lungFunctionCapacity===""&&
@@ -183,6 +186,15 @@ class HomePage extends Component {
                                     this.state.gender===""
                                 ){
 
+                                }else{
+                                    axios.post("http://localhost:3003/api/predictions/predict", {
+                                    }).then(response => {
+                                        console.log(response.data)
+                                        this.setState({predictedValue:response.data.Prediction})
+                                    }).catch(err => {
+                                        console.log("Error",err)
+                                        this.setState({error: err})
+                                    });
                                 }
                                 console.log(this.state)
                             }}
@@ -192,8 +204,8 @@ class HomePage extends Component {
                         <input
                             type="button"
                             onClick={() => this.setState({reDirectToRegistration: true})}
-                            className="gotoRegisterButton"
-                            value="Do not have an account? Register here"
+                            className="loginbutton"
+                            value="Logout"
                         />
                     </div>
                 </div>

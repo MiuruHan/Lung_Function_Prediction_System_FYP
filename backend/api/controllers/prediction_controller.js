@@ -36,7 +36,7 @@ exports.predict= async (req,res) => {
                 res.json({
                     Status: "Successful",
                     Message: 'Record  has been saved successfully.',
-                    Prediction : 444.4
+                    Prediction : dataFromFlaskAPI
                 })
 
             })

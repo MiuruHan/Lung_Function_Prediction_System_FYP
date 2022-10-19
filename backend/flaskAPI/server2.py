@@ -81,7 +81,7 @@ def getMoodPrediction():
 
     result = model2(np.array([[233, 3333, 44, 44, 333]]))
     print(result)
-    return jsonify({"Prediction":4444.4}), 201
+    return jsonify({"Prediction":prediction}), 201
 
     # return jsonify({"ERROR":"AN ERROR HAPPENED"}), 201
 
