@@ -29,7 +29,7 @@ class HomePage extends Component {
         } else {
             return (
                 <div className="homePageMain">
-                    <h1 className="title">Welcome Chanuka Abeysinghe</h1>
+                    <h1 className="title">Welcome</h1>
                     {this.state.predicted ?
                         <div className="predictionBox">
                             <h3 className="prediction">
