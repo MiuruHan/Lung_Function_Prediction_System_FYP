@@ -24,15 +24,7 @@ class HomePage extends Component {
     }
 
     render() {
-        if (this.state.reDirectToDiaryHistory) {
-            return <Navigate to="/testDiary"/>
-        } else if (this.state.reDirectToTests) {
-            return <Navigate to="/sessionSelection"/>
-        } else if (this.state.reDirectToAddMembers) {
-            return <Navigate to="/addNewMember"/>
-        } else if (this.state.reDirectToSocialMediaAnalyser) {
-            return <Navigate to="/socialMedia"/>
-        } else if (this.state.reDirectToLogin) {
+        if (this.state.reDirectToLogin) {
             return <Navigate to="/login"/>
         } else {
             return (
@@ -226,7 +218,7 @@ class HomePage extends Component {
                         />
                         <input
                             type="button"
-                            onClick={() => this.setState({reDirectToRegistration: true})}
+                            onClick={() => this.setState({reDirectToLogin: true})}
                             className="loginbutton"
                             value="Logout"
                         />

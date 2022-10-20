@@ -84,18 +84,8 @@ def getMoodPrediction():
         smokingStatus = int(-1)
 
     prediction = random.randint(1000, 4500)
-    model_input = preprocess_data2([
-        './uploads/1.dcm',
-        './uploads/2.dcm',
-        './uploads/3.dcm',
-        './uploads/4.dcm',
-        './uploads/5.dcm',
-        './uploads/6.dcm',
-        './uploads/7.dcm',
-        './uploads/8.dcm',
-        './uploads/9.dcm',
-        './uploads/10.dcm',
-    ])
+    print(data["images"])
+    model_input = preprocess_data2(data["images"])
 
     result = model2.predict(np.array([[
         tf.strings.to_number(data["weekNumber"], out_type=tf.float32),
@@ -106,7 +96,7 @@ def getMoodPrediction():
     ]]))
     print(result[0][0])
     result = int(result[0][0])
-    return jsonify({"Prediction":prediction}), 201
+    return jsonify({"Prediction":result}), 201
 
     # return jsonify({"ERROR":"AN ERROR HAPPENED"}), 201
 
