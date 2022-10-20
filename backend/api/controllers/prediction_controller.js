@@ -20,7 +20,12 @@ exports.predict= async (req,res) => {
             method: 'POST',
             uri: PYTHON_FLASK_API_URL+"predict",
             body: {
-                "image":"1.dcm"
+                "image":"1.dcm",
+                "weekNumber":weekNumber,
+                "age":age,
+                "lungFunctionCapacity":lungFunctionCapacity,
+                "gender":gender,
+                "smokingStatus":smokingStatus
             },
             json: true,
             headers: {

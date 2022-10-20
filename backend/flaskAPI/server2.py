@@ -59,12 +59,30 @@ def getMoodPrediction():
     getModel()
     data = request.get_json(force=True)
     encoded = data['image']
-
+    weekNumber = data['weekNumber']
+    print("WEEKNUMBER "+ weekNumber)
+    print(data['gender'])
+    print(data['smokingStatus'])
     imageURL = "http://localhost:3003/uploads/"+encoded
     url = imageURL.replace(" ", "%20")
     response = {
         'prediction': encoded
     }
+    genderAttrt = 0
+    smokingStatus = 0
+
+    if data['gender']=="Male":
+        genderAttrt = int(1)
+    else:
+        genderAttrt = int(0)
+
+    if data['smokingStatus'] == "Currently Smoking":
+        smokingStatus =  int(1)
+    elif data['smokingStatus'] == "Stopped Smoking":
+        smokingStatus = int(0)
+    elif data['smokingStatus'] == "Never Smoked":
+        smokingStatus = int(-1)
+
     prediction = random.randint(1000, 4500)
     model_input = preprocess_data2([
         './uploads/1.dcm',
@@ -79,8 +97,15 @@ def getMoodPrediction():
         './uploads/10.dcm',
     ])
 
-    result = model2(np.array([[233, 3333, 44, 44, 333]]))
-    print(result)
+    result = model2.predict(np.array([[
+        tf.strings.to_number(data["weekNumber"], out_type=tf.float32),
+        tf.strings.to_number(data["lungFunctionCapacity"], out_type=tf.float32),
+        tf.strings.to_number(data["age"], out_type=tf.float32),
+        genderAttrt,
+        smokingStatus
+    ]]))
+    print(result[0][0])
+    result = int(result[0][0])
     return jsonify({"Prediction":prediction}), 201
 
     # return jsonify({"ERROR":"AN ERROR HAPPENED"}), 201
