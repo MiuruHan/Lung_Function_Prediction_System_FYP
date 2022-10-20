@@ -9,6 +9,7 @@ exports.predict= async (req,res) => {
         userId,weekNumber,age,lungFunctionCapacity,gender,smokingStatus
     } = req.body
 
+    console.log("IMAGES",req.files[0])
     if(userId===""||weekNumber===null||age===null||
         lungFunctionCapacity===null||gender===null||smokingStatus===null
     ){

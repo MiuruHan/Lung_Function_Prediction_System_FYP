@@ -18,7 +18,8 @@ class HomePage extends Component {
             reDirectToTests: false,
             reDirectToAddMembers: false,
             predicted: true,
-            predictedValue:null,
+            predictedValue: null,
+            images:null
         }
     }
 
@@ -49,9 +50,19 @@ class HomePage extends Component {
                     <div className="form">
                         <div className="inputComponent">
                             <h7 className="label">Please select 10 CT images which are needed
-                                to predict FVC (Only select dicom images.)</h7>
-                            <input id='fileUpload' type='file' multiple
-                                   // accept='image/png'
+                                to predict FVC (Only select dicom images.)
+                            </h7>
+                            <input
+                                id='fileUpload'
+                                type='file'
+                                multiple
+                                onChange={(e)=>{
+                                    console.log(e)
+                                    this.setState({
+                                        images:e.target.files
+                                    })
+                                }}
+                                // accept='image/png'
                             />
                         </div>
                         <div className="inputRow">
@@ -90,7 +101,7 @@ class HomePage extends Component {
                                 className="loginFormTextInput"
                                 onChange={(e) =>
                                     this.setState({
-                                        lungFunctionCapacity:e.target.value
+                                        lungFunctionCapacity: e.target.value
                                     })
                                 }
                                 value={this.state.lungFunctionCapacity}
@@ -107,9 +118,9 @@ class HomePage extends Component {
                                             type="radio"
                                             value="Male"
                                             checked={this.state.gender === "Male"}
-                                            onChange={(event)=>{
+                                            onChange={(event) => {
                                                 this.setState({
-                                                    gender:event.target.value
+                                                    gender: event.target.value
                                                 })
                                             }}
                                         />
@@ -120,9 +131,9 @@ class HomePage extends Component {
                                             type="radio"
                                             value="Female"
                                             checked={this.state.gender === "Female"}
-                                            onChange={(event)=>{
+                                            onChange={(event) => {
                                                 this.setState({
-                                                    gender:event.target.value
+                                                    gender: event.target.value
                                                 })
                                             }}
                                         />
@@ -138,9 +149,9 @@ class HomePage extends Component {
                                             type="radio"
                                             value="Currently Smoking"
                                             checked={this.state.smokingStatus === "Currently Smoking"}
-                                            onChange={(event)=>{
+                                            onChange={(event) => {
                                                 this.setState({
-                                                    smokingStatus:event.target.value
+                                                    smokingStatus: event.target.value
                                                 })
                                             }}
                                         />
@@ -151,9 +162,9 @@ class HomePage extends Component {
                                             type="radio"
                                             value="Stopped Smoking"
                                             checked={this.state.smokingStatus === "Stopped Smoking"}
-                                            onChange={(event)=>{
+                                            onChange={(event) => {
                                                 this.setState({
-                                                    smokingStatus:event.target.value
+                                                    smokingStatus: event.target.value
                                                 })
                                             }}
                                         />
@@ -164,9 +175,9 @@ class HomePage extends Component {
                                             type="radio"
                                             value="Never Smoked"
                                             checked={this.state.smokingStatus === "Never Smoked"}
-                                            onChange={(event)=>{
+                                            onChange={(event) => {
                                                 this.setState({
-                                                    smokingStatus:event.target.value
+                                                    smokingStatus: event.target.value
                                                 })
                                             }}
                                         />
@@ -177,22 +188,34 @@ class HomePage extends Component {
                         </div>
                         <input
                             type="button"
-                            onClick={(event)=>{
+                            onClick={(event) => {
                                 event.preventDefault()
-                                if(this.state.weekNumber===""&&
-                                    this.state.age===""&&
-                                    this.state.lungFunctionCapacity===""&&
-                                    this.state.smokingStatus===""&&
-                                    this.state.gender===""
-                                ){
+                                if (this.state.weekNumber === "" &&
+                                    this.state.age === "" &&
+                                    this.state.lungFunctionCapacity === "" &&
+                                    this.state.smokingStatus === "" &&
+                                    this.state.gender === ""
+                                ) {
 
-                                }else{
-                                    axios.post("http://localhost:3003/api/predictions/predict", {
-                                    }).then(response => {
-                                        console.log(response.data)
-                                        this.setState({predictedValue:response.data.Prediction})
-                                    }).catch(err => {
-                                        console.log("Error",err)
+                                } else {
+                                    const formData = new FormData();
+                                    formData.append('weekNumber', this.state.weekNumber)
+                                    formData.append('age', this.state.age)
+                                    formData.append('lungFunctionCapacity', this.state.lungFunctionCapacity)
+                                    formData.append('smokingStatus', this.state.smokingStatus)
+                                    formData.append('gender', this.state.gender)
+                                    for(let i=0;i<10;i++){
+                                        console.log(this.state.images[i].path)
+                                        formData.append('image', this.state.images[i])
+                                    }
+
+                                    console.log("FORMDATA",formData)
+                                    axios.post("http://localhost:3003/api/predictions/predict", formData)
+                                        .then(response => {
+                                            console.log(response.data)
+                                            this.setState({predictedValue: response.data.Prediction})
+                                        }).catch(err => {
+                                        console.log("Error", err)
                                         this.setState({error: err})
                                     });
                                 }

@@ -5,28 +5,23 @@ const {predict}  = require('../controllers/prediction_controller')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads/')
+        cb(null, './flaskAPI/uploads')
     },
     filename: function (req, file, cb) {
-        cb(null, "1.dcm");
+        cb(null, file.originalname);
     }
 })
 
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/dcm') {
-        cb(null, true);
-    } else {
-        cb(null, false);
-    }
+    cb(null, true);
 }
 const upload = multer({
     storage: storage,
     limits: {fileSize: 1024 * 1024 * 1500},
-    fileFilter: fileFilter
-
+    fileFilter:fileFilter
 });
 
 
-router.post('/predict',predict)
+router.post('/predict',upload.array('image',10),predict)
 
 module.exports =  router
