@@ -219,7 +219,7 @@ class HomePage extends Component {
                         <input
                             type="button"
                             onClick={() => this.setState({reDirectToLogin: true})}
-                            className="loginbutton"
+                            className="logoutbutton"
                             value="Logout"
                         />
                     </div>

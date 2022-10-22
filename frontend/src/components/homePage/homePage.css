@@ -8,7 +8,9 @@
     right: 20%;
     border-radius: 50px;
     box-shadow: 1px 3px 10px #9E9E9E;
+    overflow: scroll;
     font-family:"Arial Rounded MT Bold";
+    padding: 30px;
 }
 .title{
     text-align: center;
@@ -55,6 +57,24 @@
 .checkButton{
     margin-left: 20px;
     margin-top: 10px;
+}
+.logoutbutton {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 10px;
+    background: #40739e;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    transition: 0.5s;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.logoutbutton:hover {
+    box-shadow: 0px 0px 20px 1px #40739e;
 }
 
 @media only screen and (max-width: 1000px) {
